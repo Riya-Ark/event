@@ -1,0 +1,26 @@
+<div class="box1 my-5">
+    <h1 class="my-5">Booking DETAILS</h1>
+    <table class="table text-light table-striped w-75"style=" backdrop-filter: blur(5px);
+        background-color: rgba(0, 0,0, .4);box-shadow: 2px 2px 5px gray;">
+        <thead>
+            <tr style="text-align:center;">
+                <th> Name</th>
+                <th>Event</th>
+                <th>date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in std %}
+            <tr>
+                <td style="color:yellow; text-align:center;"></td>
+                <td>{{ i.user_name }}</td>
+                <td>{{ i.user_event }}</td>
+                <td>{{ i.user_time }}</td>
+                <td> <a href="{% url 'admin_event_view' %}"> Views details </a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

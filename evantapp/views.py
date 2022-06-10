@@ -41,7 +41,7 @@ def add_data(request):
         
 
        
-        return redirect (request,'personalise.html')
+        return redirect ('user_show_events')
 
 # login decroter needs to be added
 def admin_event_view(request):

@@ -1,4 +1,4 @@
-{% extends 'base3.html' %}
+{% extends 'base4.html' %}
 {% block menu %}
       
 
@@ -7,7 +7,7 @@
 {% block content %}
 {% include 'admin-navbar.html' %}
 <div class="box1 my-5">
-    <h1 class="my-5">EVENT DETAILS</h1>
+    <h1 class="my-5" style="color:#f4524d ">EVENT DETAILS</h1>
     <table class="table text-light table-striped w-75"style=" backdrop-filter: blur(5px);
         background-color: rgba(0, 0,0, .4);box-shadow: 2px 2px 5px gray;">
         <thead>
@@ -29,7 +29,7 @@
                 
                 <td>                 
                     <button class="btn btn-success round p-2"><a href="{% url 'aprove_event' i.id %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">APPROVE </a></button>
-                    <button class="btn btn-success round p-2"><a href="{% url 'reject_event' i.id  %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">REJECT </a></button>
+                    <button class="btn btn-danger round p-2"><a href="{% url 'reject_event' i.id  %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">REJECT </a></button>
 
                    
                 </td>

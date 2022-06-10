@@ -1,20 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base4.html' %}
 {% block menu %}
       
-{% include 'admin-navbar.html' %}
           
 {% endblock menu %}
 {% block content %}
+{% include 'admin-navbar.html' %}
+
 <div class="container1"style=" display: flex;
 align-items: center;
 justify-content: center; backdrop-filter: blur(10px);
-background-color: rgba(50, 50, 50, .6);box-shadow: 1px 1px 2px black;">
+background-color: none; box-shadow: 0px 0px 0px orangered;">
     <div class="left"style="color:white;">
     <h1>Welcome admin!</h1>
-    <h3 style="color:yellow;">You can control everything from here</h3>
+    <h3 style="color: orange">We are more than just a company</h3>
     </div>
     <div class="right">
-        <img src="https://wallpapercave.com/wp/wp2508312.jpg">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp">
     </div>
 </div>
 {% endblock %}

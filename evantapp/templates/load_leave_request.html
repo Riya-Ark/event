@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>leave requests</title>
+        {% load static %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=League+Gothic&family=Lobster&family=Oswald:wght@500&family=Roboto+Condensed&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=League+Gothic&family=Lobster&family=Oswald:wght@500&family=Pacifico&display=swap');
+        body{
+            background-image: url({% static 'img/pend.jpg' %});
+        background-size:100%;
+        background-repeat: no-repeat;
+        }
+        .table{
+            background-color: rgba(0, 0, 0, 0.575);
+            text-align:center;
+
+        }
+       
+        a{
+            color:white;
+        }
+
+    </style>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 "style=" backdrop-filter: blur(20px);
+                background-color: rgba(255, 255, 255, .1);font-family: 'Roboto Condensed', sans-serif;">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="{% url 'load_admin_home' %}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-warning text-decoration-none" >
+                            <span class="fs-5 d-none d-sm-inline">VRU technologies</span>
+                        </a>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+                            
+                            <li  class=" w-100 rounded-pill hvr text-light ">
+                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light">
+                                    <i class="fa fa-th-list fa-fw mr-1"></i></i> <span class="ms-1 d-none d-sm-inline">TASKS</span> </a>
+                                <ul class="collapse  nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                    <li class="w-100 text-light">
+                                        <a href="{% url 'enter_task' %}"class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">GIVE</span> TASKS </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'task_details' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">ALL</span> TASKS </a>
+                                    </li>
+                                    <li>
+                                        <a  href="{% url 'task_details_pending' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">PENDING</span> TASKS </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'task_details_submited' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">COMPLEATED</span> TASKS </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li  class=" w-100 rounded-pill hvr  text-light">
+                                <a href="#submenu10" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><i class="fa fa-calendar" aria-hidden="true"></i>  <span class="ms-1 d-none d-sm-inline">LEAVES</span> </a>
+                                <ul class="collapse  nav flex-column ms-1" id="submenu10" data-bs-parent="#menu">
+                                    <li class=" w-100 rounded-pill hvr text-light  ">
+                                        <a href="{% url 'load_leave_requests' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">PENDING</span> LEAVES</a>
+                                    </li>
+                                    <li class=" w-100 rounded-pill hvr text-light  ">
+                                        <a href="{% url 'aprove_leave_req' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">APPROVED</span>LEAVES</a>
+                                    </li>
+                                    <li class=" w-100 rounded-pill hvr text-light  ">
+                                        <a  href="{% url 'rejected_leave_req' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">REJECTD</span> LEAVES</a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            
+                            <li  class=" w-100 rounded-pill hvr text-light  ">
+                                <a href="#submenu11" data-bs-toggle="collapse" class="nav-link text-light px-0 align-middle">
+                                    <i class="fa fa-credit-card" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">SALARY</span> </a>
+                                <ul class="collapse  nav flex-column ms-1" id="submenu11" data-bs-parent="#menu">
+                                    <li class="w-100 text-light">
+                                        <a href="{% url 'enter_salary' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">ENTER</span> DETAILS </a>
+                                    </li>
+                                    <li class="w-100 text-light">
+                                        <a href="{% url 'search_salary' %}" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">MONTHLY</span>DETAILS</a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            <li class=" w-100 rounded-pill hvr text-light  ">
+                                <a href="{% url 'emplist' %}" class="nav-link px-0 align-middle text-light ">
+                                    <i class="fa fa-user-o" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">EMPLOYEES</span> </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="dropdown pb-4">
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{% static 'img/default.png'%}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                <span class="d-none d-sm-inline mx-1">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+    
+                                <li><a class="dropdown-item" href="{% url 'load_loginpage' %}">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col py-3">
+                    
+<h1 class="text-center text-white py-3">PENDING LEAVES</h1>
+<div style=" display: flex;
+align-items: center;
+justify-content: center;"> 
+        
+<table border="": class='text-center table text-white w-75' style=" backdrop-filter: blur(20px);
+background-color: rgba(0, 0,0, .4);box-shadow: 2px 2px 5px gray;">
+    <thead>
+        <tr style="text-align:center;">
+            <th> Name</th>
+            <th>Event</th>
+            <th>date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in users %}
+        <tr>
+            {% comment %} <td>{{ u.user.id }}</td> {% endcomment %}
+             <td>{{ u.user.first_name }} {{ u.user.last_name }}</td>{% comment %}{% url 'admin_details' teachers.id %} {% endcomment %}
+        
+            <td>{{ u.startdate }}</td>
+            <td>{{ u.enddate }}</td>
+            <td>{{ u.reason }}</td>
+            <td>
+                <button class="btn btn-success round p-2"><a href="{% url 'aprove_leave' u.id %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">APPROVE </a></button>
+               
+                <button class="btn btn-warning mx-2 round p-2"><a href="{% url 'reject_leave' u.id %}" class="text-dark text-decoration-none " onClick="return confirm('Are You Sure Want to REJECT This request ')">REJECT</a></button>
+                <button class="btn btn-danger round p-2"><a href="{% url 'delete_leave' u.id %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to DELETE This request ')">DELETE</a></button></td>
+            {% comment %} <td><a href="{% url 'delete_user' u.id %}" class="delete" onClick="return confirm('Are You Sure Want to Delete This Item ')">Delete</a></td> {% endcomment %}
+            
+            
+        </tr>
+    
+        {% endfor %} 
+   
+    
+</table>
+
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+        <script src="" async defer></script>
+    </body>
+</html>

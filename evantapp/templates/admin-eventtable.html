@@ -1,0 +1,44 @@
+{% extends 'base3.html' %}
+{% block menu %}
+      
+
+          
+{% endblock menu %}
+{% block content %}
+{% include 'admin-navbar.html' %}
+<div class="box1 my-5">
+    <h1 class="my-5">EVENT DETAILS</h1>
+    <table class="table text-light table-striped w-75"style=" backdrop-filter: blur(5px);
+        background-color: rgba(0, 0,0, .4);box-shadow: 2px 2px 5px gray;">
+        <thead>
+            <tr style="text-align:center;">
+                <th> Name</th>
+                <th>Event</th>
+                <th>date</th>
+                <th>Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in std %}
+            <tr>
+                <td style="color:rgb(209, 60, 67); text-align:left;">{{ i.user }}</td>
+               
+                <td>{{ i.user_event }}</td>
+                <td>{{ i.user_time }}</td>
+                
+                <td>                 
+                    <button class="btn btn-success round p-2"><a href="{% url 'aprove_event' i.id %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">APPROVE </a></button>
+                    <button class="btn btn-success round p-2"><a href="{% url 'reject_event' i.id  %}" class="text-light text-decoration-none " onClick="return confirm('Are You Sure Want to aprove This request ')">REJECT </a></button>
+
+                   
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

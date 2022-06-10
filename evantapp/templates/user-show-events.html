@@ -1,0 +1,47 @@
+{% extends 'base4.html' %}
+{% block menu %}
+      
+          
+{% endblock menu %}
+{% block content %}
+{% include 'user-navbar.html' %}
+
+<div class="box1 my-5">
+    <h1 class="my-5">EVENT DETAILS</h1>
+    <table class="table text-light table-striped w-75"style=" backdrop-filter: blur(5px);
+        background-color: rgba(0, 0,0, .4);box-shadow: 2px 2px 5px gray;">
+        <thead>
+            <tr style="text-align:center;">
+                <th> Name</th>
+                <th>Event</th>
+                <th>date</th>
+                <th>Status</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in applied %}
+            <tr>
+                <td style="color:rgb(209, 60, 67); text-align:left;">{{ u.user }}</td>
+               
+                <td>{{ u.user_event }}</td>
+                <td>{{ u.user_time }}</td>
+                <!-- <td>{{ u.status }}</td> -->
+
+                {% if u.status == '1' %} 
+                        <td><h6 class="btn btn-success p-1 m-0">APPROVED</h6></td>
+                        {% elif u.status == '0' %} 
+                        <td><h6  class="btn btn-warning p-1 m-0">PENDING</h6></td>
+                        {% elif u.status == '2' %}
+                        <td><h6 class="btn btn-danger p-1 m-0">REJECTED</h6></td> 
+                        {% endif %}  
+                    
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

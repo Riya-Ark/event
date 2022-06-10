@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+{% block menu %}
+      
+{% include 'navbar.html' %}
+          
+{% endblock menu %}
+{% block content %}
+
+
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -30,6 +39,7 @@ border-bottom-right-radius: .3rem;
     </style>
 </head>
 <body>
+
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -45,40 +55,33 @@ border-bottom-right-radius: .3rem;
                         <h4 class="mt-1 mb-5 pb-1">We are The Harmony Team</h4>
                       </div>
       
-                      <form action="{% url 'register_user' %}" method=POST>
-						{% csrf_token %}
-			
-						{{ form.as_p }}
+                      <form method="post" action="register_user" class=" p-sm-5 m-sm-3 light"  style=" backdrop-filter: blur(5px);
+background-color: rgba(255, 255, 255, .15);box-shadow: 2px 2px 5px gray; display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+border-radius: 20px;
+" enctype="multipart/form-data">
+{% csrf_token %}
+<h1 class='text-center  text-dark my-2'>REGISTRATION</h1>
+{% for message in messages %}
+        <h5>
+            <div class="alert alert-danger mt-5">
+                {{ message }}
+            </div>
+        </h5>
+{% endfor %}
+    <input type="text" name="fname" placeholder="Enter your first name"class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="text" name="lname" placeholder="Enter your last name" class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="text" name="address" placeholder="Enter your address" class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="email" name="email" placeholder="Enter your email" class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="text" name="uname" placeholder="Enter your username" class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="password" name="passw" placeholder="Enter password"class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    <input type="password" name="cpassw" placeholder="Enter confirm password" class=" px-3 py-2 m-0 my-2 w-75 rounded-pill">
+    
+    <button type="submit" class="form-control btn btn-primary w-50 rounded-pill">Submit</button>
 
-                        <!-- <p>Please login to your account</p>
-      
-                        <div class="form-outline mb-4">
-                          <input type="email" id="form2Example11" class="form-control"
-                            placeholder="Username" />
-                          <label class="form-label" for="form2Example11">Username</label>
-                        </div>
-      
-                        <div class="form-outline mb-4">
-                          <input type="password" id="form2Example22" class="form-control" />
-                          <label class="form-label" for="form2Example22">Password</label>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <input type="password" id="form2Example22" class="form-control" />
-                            <label class="form-label" for="form2Example22"> Confirm Password</label>
-                          </div> -->
-      
-                        <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Signup</button>
-                          
-                        </div>
-      
-                        <div class="d-flex align-items-center justify-content-center pb-4">
-                          <p class="mb-0 me-2">Already a member?</p>
-                          <button type="button" class="btn btn-outline-danger">Login</button>
-                        </form>
-                        </div>
-      
-                      </form>
+</form>
       
                     </div>
                   </div>
@@ -95,4 +98,5 @@ border-bottom-right-radius: .3rem;
           </div>
         </div>
       </section>
+{% endblock %}
 </body>

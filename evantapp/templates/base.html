@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <!-- Some stuff here which should be included in all templates for example js or css -->
+        {% block extra_css %}
+            <!-- to included app-template dependent css -->
+        {% endblock extra_css %}
+
+        {% block extra_js %}
+            <!-- to included app-template dependent js -->
+        {% endblock extra_js %}
+
+        {% block extra_head %}
+            <!-- for anything else inside head -->
+        {% endblock extra_head %}
+
+    </head>
+    <body>
+        {% block menu %}
+            
+          
+            {% endblock menu %}
+            {% block extra_menu %}
+                <!-- extend menu based on template -->
+            {% endblock extra_menu %}
+        
+
+        {% block content %}
+            <div>This is good</div>
+        {% endblock content %}
+
+
+        {% block bottom_js %}
+            <!-- if you want to have manual js scripts at bottom -->
+        {% endblock bottom_js %}
+    </body>
+</html>

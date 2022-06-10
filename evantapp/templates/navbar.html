@@ -123,10 +123,10 @@
     <p><span>Code</span>pen</p>
     <ul>
       <li>
-        <a href="#">Home</a>
+        <!-- <a href="#">Home</a>
         <a href="#">Store</a>
-        <a href="#">About Us</a>
-        <button class="btn register">Register</button>
+        <a href="#">About Us</a> -->
+        <button class="btn register"><a href="{% url 'register' %}">Register</a></button>
         <button class="btn login"><a href="{% url 'login_user' %}">Log In</a></button>
       </li>
     </ul>

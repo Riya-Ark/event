@@ -41,7 +41,7 @@ def add_data(request):
         
 
        
-        return redirect ('/')
+        return redirect (request,'personalise.html')
 
 # login decroter needs to be added
 def admin_event_view(request):
@@ -66,10 +66,9 @@ def register(request):
 #User registration
 def register_user(request):
     if request.method =='POST':
-        print("panipali")
         fname=request.POST.get('fname')
         lname=request.POST.get('lname')
-        address=request.POST.get('address')
+        # address=request.POST.get('address')
         email=request.POST.get('email')
         uname=request.POST.get('uname')
         passw=request.POST.get('passw')
@@ -90,13 +89,14 @@ def register_user(request):
                                                      password=passw)
                 user.save()
                 u=User.objects.get(id=user.id)
-                member=UserMember(user_address=address,
+                member=UserMember(
+                    # user_address=address,
                                       user=u,
                                       )
                 member.save()
                 return redirect('load_loginpage')
     
-    return redirect('register_user')
+    return redirect('register')
 
 def load_loginpage(request):
     return render(request,'login.html')
